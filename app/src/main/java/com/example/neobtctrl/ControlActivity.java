@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class ControlActivity extends AppCompatActivity {
-    Button mOnBtn, mOffBtn;
+    Button mOnBtn, mOffBtn, mRBtn, mGBtn, mBBtn, mRGBtn, mRBBtn, mGBBtn, mRGBBtn, mFrontBtn, mStopBtn, mBackBtn, mPianoBtn;
     String address;
     private ProgressDialog progressDialog;
     BluetoothAdapter mBluetoothAdapter;
@@ -36,28 +36,206 @@ public class ControlActivity extends AppCompatActivity {
 
         mOnBtn = (Button) findViewById(R.id.onBtn);
         mOffBtn = (Button) findViewById(R.id.offBtn);
+        mRBtn = (Button) findViewById(R.id.redBtn);
+        mGBtn = (Button) findViewById(R.id.greenBtn);
+        mBBtn = (Button) findViewById(R.id.blueBtn);
+        mRGBtn = (Button) findViewById(R.id.rgBtn);
+        mRBBtn = (Button) findViewById(R.id.rbBtn);
+        mGBBtn = (Button) findViewById(R.id.gbBtn);
+        mRGBBtn = (Button) findViewById(R.id.rgbBtn);
+        mFrontBtn = (Button) findViewById(R.id.frontBtn);
+        mStopBtn = (Button) findViewById(R.id.stopBtn);
+        mBackBtn = (Button) findViewById(R.id.backBtn);
+        mPianoBtn = (Button) findViewById(R.id.pianoBtn);
 
         new ConnectBT().execute();
 
         mOnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendString("on");
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0xff);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xfd);
+                sendString(0x0a);
+
             }
         });
 
         mOffBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendString("off");
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x0a);
+            }
+        });
+
+        mRBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x0a);
+            }
+        });
+
+        mGBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x0a);
+            }
+        });
+
+        mBBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x0a);
+            }
+        });
+
+        mRGBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xfe);
+                sendString(0x0a);
+            }
+        });
+
+        mRBBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xfe);
+                sendString(0x0a);
+            }
+        });
+
+        mGBBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x01);
+                sendString(0x14);
+                sendString(0x02);
+                sendString(0x1e);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0xff);
+                sendString(0x33);
+                sendString(0x0a);
+            }
+        });
+
+        mRGBBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x01);
+                sendString(0x14);
+                sendString(0x00);
+                sendString(0x1e);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0xff);
+                sendString(0xff);
+                sendString(0x31);
+                sendString(0x0a);
+            }
+        });
+
+        mPianoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendString(0xff);
+                sendString(0x0c);
+                sendString(0x02);
+                sendString(0x07);
+                sendString(0x03);
+                sendString(0x02);
+                sendString(0x03);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x00);
+                sendString(0x11);
+                sendString(0x0a);
             }
         });
     }
 
-    private void sendString(String value) {
+    private void sendString(int value) {
         if ( mBluetoothSocket != null ) {
             try {
-                mBluetoothSocket.getOutputStream().write(value.toString().getBytes());
+                mBluetoothSocket.getOutputStream().write(value);
             } catch ( IOException e ) {
                 msg("Error");
             }

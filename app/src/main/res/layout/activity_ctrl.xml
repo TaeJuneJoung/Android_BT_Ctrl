@@ -36,4 +36,70 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/redBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RED" />
+
+    <Button
+        android:id="@+id/greenBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GREEN" />
+
+    <Button
+        android:id="@+id/blueBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BLUE" />
+
+    <Button
+        android:id="@+id/rgBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RG" />
+
+    <Button
+        android:id="@+id/rbBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RB" />
+
+    <Button
+        android:id="@+id/gbBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="랜덤자율주행" />
+
+    <Button
+        android:id="@+id/rgbBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="우선법자율주행" />
+
+    <Button
+        android:id="@+id/pianoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Piano" />
+
+    <Button
+        android:id="@+id/frontBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Front" />
+
+    <Button
+        android:id="@+id/stopBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
 </LinearLayout>
